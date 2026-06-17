@@ -1,0 +1,23 @@
+<Solution>
+  <Folder Name="/1.Root/">
+    <File Path=".gitignore" />
+    <File Path="README.md" />
+    <File Path="src/.editorconfig" />
+    <File Path="src/Directory.Build.props" />
+    <File Path="src/Directory.Build.targets" />
+    <File Path="src/Directory.Packages.props" />
+    <File Path="src/TFM_NETX_ALL.props" />
+    <File Path="src/Version.props" />
+  </Folder>
+  <Folder Name="/1.Root/ISSUE_TEMPLATE/">
+    <File Path=".github/ISSUE_TEMPLATE/bug-report.en.md" />
+    <File Path=".github/ISSUE_TEMPLATE/bug-report.md" />
+    <File Path=".github/ISSUE_TEMPLATE/question.en.md" />
+    <File Path=".github/ISSUE_TEMPLATE/question.md" />
+  </Folder>
+  <Folder Name="/2.Document/" />
+  <Folder Name="/2.Libraries/" />
+  <Folder Name="/3.EntryPoint/" />
+  <Folder Name="/4.Tools/" />
+  <Folder Name="/5.UnitTest/" />
+</Solution>

@@ -1,0 +1,71 @@
+<Project>
+
+	<Import Project="$(MSBuildThisFileDirectory)Version.props" />
+
+	<!-- 👇 全局 Property 配置 -->
+	<PropertyGroup>
+		<Deterministic>true</Deterministic>
+		<LangVersion>preview</LangVersion>
+		<Nullable>enable</Nullable>
+		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+		<UseArtifactsOutput>true</UseArtifactsOutput>
+		<SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
+		<NoWarn>$(NoWarn);NU1504;NU1507;MSB4011;NU5048;NU5104;RS1041</NoWarn>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<!-- 👇 源生成器生成的 C# 临时源码文件在生成结束后是否不删除文件，用于生成错误代码时查文件内容纠正生成器，启用时会导致 VS 的 Android 热重载在生成时出错 -->
+		<!--<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>-->
+	</PropertyGroup>
+
+	<!-- 👇 TFM != .NET Framework 3.5 -->
+	<PropertyGroup Condition="!$(TargetFramework.StartsWith('net35'))">
+		<ImplicitUsings>true</ImplicitUsings>
+	</PropertyGroup>
+
+	<!-- 👇 程序集信息 -->
+	<PropertyGroup>
+		<Version>1.0.0.0</Version>
+	</PropertyGroup>
+
+	<!-- 👇 CompilerVisibleProperty 配置源生成器中 MSBuild Property 可见性 -->
+	<ItemGroup>
+		<CompilerVisibleProperty Include="Deterministic" />
+	</ItemGroup>
+
+	<!-- 👇 阻止 error NETSDK1175: 启用剪裁时，不支持或不推荐使用 Windows 窗体 -->
+	<PropertyGroup>
+		<_SuppressWinFormsTrimError>true</_SuppressWinFormsTrimError>
+		<_SuppressWpfTrimError>true</_SuppressWpfTrimError>
+	</PropertyGroup>
+
+	<!-- 👇 CSWinRT -->
+	<PropertyGroup>
+		<!-- 解决 CSWinRT 的源生成器到处生成不需要的 C# 代码 https://github.com/microsoft/CsWinRT/issues/1814 -->
+		<CsWinRTAotOptimizerEnabled>false</CsWinRTAotOptimizerEnabled>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<!-- .NET 9 中断性变更：默认支持 CET https://learn.microsoft.com/zh-cn/dotnet/core/compatibility/interop/9.0/cet-support -->
+		<!-- 一些较旧的 Windows 版本在 CET 中存在问题，这些问题已通过服务更新得到修复 -->
+		<!-- 但有一部分用户使用旧版 Windows 10 并禁用 Windows 更新导致缺少 CET 的修复补丁，疑似 KB5015020 -->
+		<!-- CET 错误将导致进程中断，在 Windows 日志中记录以下错误内容 -->
+		<!-- CLR: Assert failure(PID 16164 [0x00003f24], Thread: 8032 [0x1f60]): !AreShadowStacksEnabled() || UseSpecialUserModeApc() -->
+		<!-- File: D:\a\_work\1\s\src\coreclr\vm\threads.cpp:7938 Image: -->
+		<CETCompat>false</CETCompat>
+	</PropertyGroup>
+
+	<!-- 👇 Android 平台签名证书私钥 -->
+	<ImportGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">
+		<Import Condition="Exists('$(MSBuildProjectDirectory)\..\..\Xamarin.Android.KeyStore.props')" Project="$(MSBuildProjectDirectory)\..\..\Xamarin.Android.KeyStore.props" />
+		<Import Condition="!Exists('$(MSBuildProjectDirectory)\..\..\Xamarin.Android.KeyStore.props') AND Exists('$(MSBuildProjectDirectory)\..\..\..\Xamarin.Android.KeyStore.props')" Project="$(MSBuildProjectDirectory)\..\..\..\Xamarin.Android.KeyStore.props" />
+	</ImportGroup>
+
+	<!-- 👇 Apple 平台签名证书私钥 -->
+	<ImportGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">
+		<Import Condition="Exists('$(MSBuildProjectDirectory)\..\..\Apple.CodesignKey.props')" Project="$(MSBuildProjectDirectory)\..\..\Apple.CodesignKey.props" />
+		<Import Condition="!Exists('$(MSBuildProjectDirectory)\..\..\Apple.CodesignKey.props') AND Exists('$(MSBuildProjectDirectory)\..\..\..\Apple.CodesignKey.props')" Project="$(MSBuildProjectDirectory)\..\..\..\Apple.CodesignKey.props" />
+	</ImportGroup>
+
+	<!-- 👇 .NET 程序集强签名 -->
+	<!--<Import Condition="!$(TargetFramework.StartsWith('net35')) AND !$(TargetFramework.StartsWith('net4')) AND !$(TargetFramework.StartsWith('netstandard'))" Project="$(MSBuildThisFileDirectory)\SignAssembly.props" />-->
+
+</Project>
