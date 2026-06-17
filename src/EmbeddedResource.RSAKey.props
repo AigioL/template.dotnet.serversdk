@@ -1,0 +1,12 @@
+<Project>
+
+	<!-- 👇 嵌入的资源 -->
+	<ItemGroup>
+		<EmbeddedResource Include="$(MSBuildThisFileDirectory)..\res\rsa\bf1175ab.resx">
+			<Generator></Generator>
+			<LogicalName>bf1175ab.resources</LogicalName>
+			<LinkBase>Properties</LinkBase>
+		</EmbeddedResource>
+	</ItemGroup>
+
+</Project>
