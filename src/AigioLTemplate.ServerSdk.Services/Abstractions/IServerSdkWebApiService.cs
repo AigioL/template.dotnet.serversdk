@@ -1,10 +1,12 @@
 using AigioL.Common.AspNetCore.AppCenter.Identity.Models;
 using AigioL.Common.JsonWebTokens.Models;
 using AigioL.Common.Models;
-using Microsoft.AspNetCore.SignalR.Client;
 using System.Diagnostics.CodeAnalysis;
 using System.Net.Http.Headers;
 using System.Text.Json.Serialization.Metadata;
+#if USE_SIGNALR
+using Microsoft.AspNetCore.SignalR.Client;
+#endif
 
 namespace AigioLTemplate.ServerSdk.Services.Abstractions;
 
@@ -50,6 +52,11 @@ public partial interface IServerSdkWebApiService
         JsonTypeInfo<TRequestModel?>? jsonRequestTypeInfo = null,
         JsonTypeInfo<ApiRsp<TResponseModel?>>? jsonResponseModelTypeInfo = null,
         CancellationToken cancellationToken = default);
+}
 
+#if USE_SIGNALR
+partial interface IServerSdkWebApiService
+{
     HubConnection CreateHubConnection(string url);
 }
+#endif

@@ -1,5 +1,5 @@
 using System.Reflection;
-using AssemblyInfo = global::AigioLTemplate.Server.AssemblyInfo;
+using AssemblyInfo = global::AigioLTemplate.AssemblyInfo;
 
 #if (WINDOWS7_0_OR_GREATER || WINDOWS) && NET5_0_OR_GREATER
 [assembly: global::System.Runtime.Versioning.SupportedOSPlatform("Windows10.0.17763")]

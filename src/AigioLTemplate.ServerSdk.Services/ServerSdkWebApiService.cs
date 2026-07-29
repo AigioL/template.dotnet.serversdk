@@ -15,9 +15,6 @@ using AigioLTemplate.ServerSdk.Models.Identity;
 using AigioLTemplate.ServerSdk.Services;
 using AigioLTemplate.ServerSdk.Services.Abstractions;
 using AigioLTemplate.VSAppCenter.Helpers;
-using Microsoft.AspNetCore.Http.Connections;
-using Microsoft.AspNetCore.Http.Connections.Client;
-using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -31,6 +28,11 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text.Json;
 using System.Text.Json.Serialization.Metadata;
+#if USE_SIGNALR
+using Microsoft.AspNetCore.Http.Connections;
+using Microsoft.AspNetCore.Http.Connections.Client;
+using Microsoft.AspNetCore.SignalR.Client;
+#endif
 
 #pragma warning disable IDE0130 // 命名空间与文件夹结构不匹配
 namespace Microsoft.Extensions.DependencyInjection;
@@ -638,6 +640,7 @@ file sealed partial class S3dfab2fb<[DynamicallyAccessedMembers(DynamicallyAcces
 
 partial class S3dfab2fb<TAppSecrets>
 {
+#if USE_SIGNALR
     void SetHttpConnectionOptions(HttpConnectionOptions o)
     {
         o.SkipNegotiation = true;
@@ -867,6 +870,7 @@ partial class S3dfab2fb<TAppSecrets>
         var conn = b.Build();
         return conn;
     }
+#endif
 }
 
 file static partial class LoggingServiceCollectionExtensions
