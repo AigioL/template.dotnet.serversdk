@@ -2,10 +2,12 @@
   <Folder Name="/1.Root/">
     <File Path=".gitignore" />
     <File Path="README.md" />
+    <File Path="ref/common/src/Directory.Packages.props" />
     <File Path="src/.editorconfig" />
     <File Path="src/Directory.Build.props" />
     <File Path="src/Directory.Build.targets" />
-    <File Path="src/Directory.Packages.props" />
+    <File Path="src/EmbeddedResource.RSAKey.props" />
+    <File Path="src/ServerSdk.PackageRef.props" />
     <File Path="src/TFM_NETX_ALL.props" />
     <File Path="src/Version.props" />
   </Folder>
@@ -20,8 +22,23 @@
     <Project Path="src/AigioLTemplate.ServerSdk.Constants/AigioLTemplate.ServerSdk.Constants.shproj" Id="299be390-2d59-4d90-b3e9-857cf734fc9b" />
     <Project Path="src/AigioLTemplate.ServerSdk.Models/AigioLTemplate.ServerSdk.Models.shproj" Id="22ff3cbe-ab25-4c12-bb3d-1a01860d94d5" />
     <Project Path="src/AigioLTemplate.ServerSdk.Services/AigioLTemplate.ServerSdk.Services.shproj" Id="517aac9d-43e4-4395-a6dc-ced14d9d557a" />
+    <Project Path="src/AigioLTemplate.ServerSdk.UnitTest.Shared/AigioLTemplate.ServerSdk.UnitTest.Shared.shproj" Id="6daab5e5-bfc3-48de-91a0-6149bb7cc509" />
+  </Folder>
+  <Folder Name="/2.Libraries/1.Reference/" />
+  <Folder Name="/2.Libraries/1.Reference/Common/">
+    <Project Path="ref/common/src/AigioL.Common.AspNetCore.AppCenter.Core.ClientSide/AigioL.Common.AspNetCore.AppCenter.Core.ClientSide.shproj" Id="4ebfea7e-a8c7-4bd0-9bf8-2f0fc039ea5c" />
+    <Project Path="ref/common/src/AigioL.Common.AspNetCore.AppCenter.Identity.Core.ClientSide/AigioL.Common.AspNetCore.AppCenter.Identity.Core.ClientSide.shproj" Id="e90b47ec-ad0e-40a8-9671-e44041beea71" />
+    <Project Path="ref/common/src/AigioL.Common.Bcl/AigioL.Common.Bcl.shproj" Id="86dfc3a4-0f30-40f0-af39-6e76e46d78f1" />
+    <Project Path="ref/common/src/AigioL.Common.Essentials/AigioL.Common.Essentials.shproj" Id="1dcaa278-148a-479e-b1d1-135476b32fdb" />
+    <Project Path="ref/common/src/AigioL.Common.JsonWebTokens.Models.Dtos/AigioL.Common.JsonWebTokens.Models.Dtos.shproj" Id="7ad8e0e7-211c-485b-a83f-bf5d35d67681" />
+    <Project Path="ref/common/src/AigioL.Common.Models.ApiRsp/AigioL.Common.Models.ApiRsp.shproj" Id="d9eafcce-1041-489d-a46b-27adc768a916" />
+    <Project Path="ref/common/src/AigioL.Common.Primitives/AigioL.Common.Primitives.shproj" Id="2fc56f9c-d2f9-4e05-b21b-179dc776d471" />
+    <Project Path="ref/common/src/AigioL.Common.System.Security.Cryptography.Aes/AigioL.Common.System.Security.Cryptography.Aes.shproj" Id="bafc6195-e7f9-4e81-b1ec-0d1de60d5fdc" />
+    <Project Path="ref/common/src/AigioL.Common.System.Security.Cryptography.RSA/AigioL.Common.System.Security.Cryptography.RSA.shproj" Id="dc3e79b1-9785-421d-b9aa-62d2f77f124d" />
   </Folder>
   <Folder Name="/3.EntryPoint/" />
   <Folder Name="/4.Tools/" />
-  <Folder Name="/5.UnitTest/" />
+  <Folder Name="/5.UnitTest/">
+    <Project Path="src/AigioLTemplate.ServerSdk.UnitTest/AigioLTemplate.ServerSdk.UnitTest.csproj" Id="e2ad11a7-c405-4127-b58d-c4839e6fdb13" />
+  </Folder>
 </Solution>

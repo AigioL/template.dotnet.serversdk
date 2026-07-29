@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net$(DotNet_Version)</TargetFramework>
+		<IsPackable>false</IsPackable>
+		<RootNamespace>AigioLTemplate.UnitTest</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="coverlet.collector">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" />
+		<PackageReference Include="xunit.v3" />
+		<PackageReference Include="xunit.runner.visualstudio" />
+		<PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Using Include="Xunit" />
+		<Using Include="AigioLTemplate.UnitTest.Abstractions" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include="$(MSBuildThisFileDirectory)..\AigioLTemplate.ServerSdk.UnitTest.Shared\Abstractions\*.cs">
+			<LinkBase>Abstractions</LinkBase>
+		</Compile>
+		<Compile Include="$(MSBuildThisFileDirectory)..\AigioLTemplate.ServerSdk.UnitTest.Shared\*Test.cs" />
+	</ItemGroup>
+
+	<Import Project="..\AigioLTemplate.ServerSdk.UnitTest.Shared\AigioLTemplate.ServerSdk.UnitTest.Shared.projitems" Label="Shared" />
+	<Import Project="..\AigioLTemplate.ServerSdk.Constants\AigioLTemplate.ServerSdk.Constants.projitems" Label="Shared" />
+	<Import Project="..\AigioLTemplate.ServerSdk.Models\AigioLTemplate.ServerSdk.Models.projitems" Label="Shared" />
+	<Import Project="..\AigioLTemplate.ServerSdk.Services\AigioLTemplate.ServerSdk.Services.projitems" Label="Shared" />
+	<Import Project="..\..\ref\common\src\AigioL.Common.Bcl\AigioL.Common.Bcl.projitems" Label="Shared" />
+	<Import Project="..\..\ref\common\src\AigioL.Common.Models.ApiRsp\AigioL.Common.Models.ApiRsp.projitems" Label="Shared" />
+	<Import Project="..\..\ref\common\src\AigioL.Common.JsonWebTokens.Models.Dtos\AigioL.Common.JsonWebTokens.Models.Dtos.projitems" Label="Shared" />
+	<Import Project="..\..\ref\common\src\AigioL.Common.Primitives\AigioL.Common.Primitives.projitems" Label="Shared" />
+	<Import Project="..\..\ref\common\src\AigioL.Common.System.Security.Cryptography.RSA\AigioL.Common.System.Security.Cryptography.RSA.projitems" Label="Shared" />
+	<Import Project="..\..\ref\common\src\AigioL.Common.Essentials\AigioL.Common.Essentials.projitems" Label="Shared" />
+	<Import Project="..\..\ref\common\src\AigioL.Common.AspNetCore.AppCenter.Identity.Core.ClientSide\AigioL.Common.AspNetCore.AppCenter.Identity.Core.ClientSide.projitems" Label="Shared" />
+	<Import Project="..\..\ref\common\src\AigioL.Common.AspNetCore.AppCenter.Core.ClientSide\AigioL.Common.AspNetCore.AppCenter.Core.ClientSide.projitems" Label="Shared" />
+	<Import Project="..\..\ref\common\src\AigioL.Common.System.Security.Cryptography.Aes\AigioL.Common.System.Security.Cryptography.Aes.projitems" Label="Shared" />
+
+	<Import Project="$(MSBuildThisFileDirectory)..\EmbeddedResource.RSAKey.props" />
+	<Import Project="$(MSBuildThisFileDirectory)..\ServerSdk.PackageRef.props" />
+
+</Project>

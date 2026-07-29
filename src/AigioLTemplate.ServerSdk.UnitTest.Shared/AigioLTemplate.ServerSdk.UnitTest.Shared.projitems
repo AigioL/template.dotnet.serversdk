@@ -3,14 +3,15 @@
   <PropertyGroup>
     <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>22ff3cbe-ab25-4c12-bb3d-1a01860d94d5</SharedGUID>
+    <SharedGUID>6daab5e5-bfc3-48de-91a0-6149bb7cc509</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>AigioLTemplate.ServerSdk.Models</Import_RootNamespace>
+    <Import_RootNamespace>AigioLTemplate.UnitTest</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Abstractions\IAppSecrets.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Identity\CurrentUser.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ServerSdkJsonSerializerContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Abstractions\BaseUnitTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PrivateKeyTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Program.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProjNameUnitTest.cs" />
   </ItemGroup>
 </Project>

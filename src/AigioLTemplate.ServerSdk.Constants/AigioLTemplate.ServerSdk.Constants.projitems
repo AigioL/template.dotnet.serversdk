@@ -9,5 +9,10 @@
     <Import_RootNamespace>AigioLTemplate.Constants</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Properties\Resources.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SerializerConstants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SerializerConstants.MemoryPack.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UrlConstants.BaseAddress.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UrlConstants.cs" />
   </ItemGroup>
 </Project>

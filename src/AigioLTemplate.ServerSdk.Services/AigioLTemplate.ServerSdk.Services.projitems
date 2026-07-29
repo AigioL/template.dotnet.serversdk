@@ -9,5 +9,12 @@
     <Import_RootNamespace>AigioLTemplate.ServerSdk.Services</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Abstractions\IServerSdkWebApiService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Abstractions\IUserStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Abstractions\IUserStoreBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\DeviceIdExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\VisualStudioAppCenterSDK.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ServerSdkWebApiService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserStore.cs" />
   </ItemGroup>
 </Project>
