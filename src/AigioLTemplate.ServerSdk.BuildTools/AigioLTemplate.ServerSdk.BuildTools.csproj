@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net$(DotNet_Version)</TargetFramework>
+		<PublishAot>false</PublishAot>
+		<AssemblyName>b</AssemblyName>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="System.CommandLine" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include="$(MSBuildThisFileDirectory)..\..\ref\common\src\AigioL.Common.BuildTools\Commands\**\*.cs">
+			<LinkBase>Commands</LinkBase>
+		</Compile>
+	</ItemGroup>
+
+	<Import Project="..\..\ref\common\src\AigioL.Common.ProjectUtils\AigioL.Common.ProjectUtils.projitems" Label="Shared" />
+	<Import Project="..\..\ref\common\src\AigioL.Common.BuildTools\AigioL.Common.BuildTools.projitems" Label="Shared" />
+
+</Project>

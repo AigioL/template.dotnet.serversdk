@@ -29,15 +29,19 @@
     <Project Path="ref/common/src/AigioL.Common.AspNetCore.AppCenter.Core.ClientSide/AigioL.Common.AspNetCore.AppCenter.Core.ClientSide.shproj" Id="4ebfea7e-a8c7-4bd0-9bf8-2f0fc039ea5c" />
     <Project Path="ref/common/src/AigioL.Common.AspNetCore.AppCenter.Identity.Core.ClientSide/AigioL.Common.AspNetCore.AppCenter.Identity.Core.ClientSide.shproj" Id="e90b47ec-ad0e-40a8-9671-e44041beea71" />
     <Project Path="ref/common/src/AigioL.Common.Bcl/AigioL.Common.Bcl.shproj" Id="86dfc3a4-0f30-40f0-af39-6e76e46d78f1" />
+    <Project Path="ref/common/src/AigioL.Common.BuildTools/AigioL.Common.BuildTools.shproj" Id="9e2ef71b-0fb8-4b45-af29-0c294675a8a8" />
     <Project Path="ref/common/src/AigioL.Common.Essentials/AigioL.Common.Essentials.shproj" Id="1dcaa278-148a-479e-b1d1-135476b32fdb" />
     <Project Path="ref/common/src/AigioL.Common.JsonWebTokens.Models.Dtos/AigioL.Common.JsonWebTokens.Models.Dtos.shproj" Id="7ad8e0e7-211c-485b-a83f-bf5d35d67681" />
     <Project Path="ref/common/src/AigioL.Common.Models.ApiRsp/AigioL.Common.Models.ApiRsp.shproj" Id="d9eafcce-1041-489d-a46b-27adc768a916" />
     <Project Path="ref/common/src/AigioL.Common.Primitives/AigioL.Common.Primitives.shproj" Id="2fc56f9c-d2f9-4e05-b21b-179dc776d471" />
+    <Project Path="ref/common/src/AigioL.Common.ProjectUtils/AigioL.Common.ProjectUtils.shproj" Id="13633681-22dd-4032-aa2c-8c789f0a1962" />
     <Project Path="ref/common/src/AigioL.Common.System.Security.Cryptography.Aes/AigioL.Common.System.Security.Cryptography.Aes.shproj" Id="bafc6195-e7f9-4e81-b1ec-0d1de60d5fdc" />
     <Project Path="ref/common/src/AigioL.Common.System.Security.Cryptography.RSA/AigioL.Common.System.Security.Cryptography.RSA.shproj" Id="dc3e79b1-9785-421d-b9aa-62d2f77f124d" />
   </Folder>
   <Folder Name="/3.EntryPoint/" />
-  <Folder Name="/4.Tools/" />
+  <Folder Name="/4.Tools/">
+    <Project Path="src/AigioLTemplate.ServerSdk.BuildTools/AigioLTemplate.ServerSdk.BuildTools.csproj" Id="feeee454-a650-4f68-a6b5-91ab0c14e547" />
+  </Folder>
   <Folder Name="/5.UnitTest/">
     <Project Path="src/AigioLTemplate.ServerSdk.UnitTest/AigioLTemplate.ServerSdk.UnitTest.csproj" Id="e2ad11a7-c405-4127-b58d-c4839e6fdb13" />
   </Folder>
