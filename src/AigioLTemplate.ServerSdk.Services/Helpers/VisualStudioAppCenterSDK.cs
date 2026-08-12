@@ -15,6 +15,11 @@ namespace AigioLTemplate.VSAppCenter.Helpers;
 static partial class VisualStudioAppCenterSDK
 {
     /// <summary>
+    /// 初始化 Visual Studio App Center
+    /// </summary>
+    internal static partial void Init();
+
+    /// <summary>
     /// 设置用户 Id，App Center SDK 将使用该 Id 来标识用户，以便在分析和崩溃报告中提供更有意义的数据
     /// </summary>
     /// <param name="userId"></param>

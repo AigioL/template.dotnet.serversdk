@@ -44,7 +44,7 @@ static partial class AssemblyInfo
     /// 与应用程序关联的产品名称。
     /// <para><see cref="AssemblyTrademarkAttribute"/></para>
     /// </summary>
-    public const string Trademark = "AigioLTemplate.Server"; // 占位符，待定
+    public const string Trademark = "AigioLTemplate"; // 占位符，待定
 
     /// <summary>
     /// 与应用程序关联的产品名称。
