@@ -3,7 +3,6 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace AigioLTemplate.ServerSdk.Services.Abstractions;
 
-/// <summary>
 /// <inheritdoc cref="IUserStoreBase"/>
 public partial interface IUserStore<[DynamicallyAccessedMembers(DynamicallyAccessedMemberTypes.All)] TUserInfoModel> : IUserStoreBase
     where TUserInfoModel : IReadOnlyId<Guid>
