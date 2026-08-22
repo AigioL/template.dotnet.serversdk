@@ -109,6 +109,76 @@ false
         {
             return false;
         }
+
+        // TODO: Digital signature verification
+        return true;
+    }
+
+    static bool EqualsCopyright(ReadOnlySpan<char> l, ReadOnlySpan<char> r)
+    {
+        // 比较字符串相等，忽略中间出现的 char 65039 值
+#pragma warning disable IDE0057 // 使用范围运算符
+        Span<char> ls = stackalloc char[l.Length];
+        int i = 0, index = 0;
+        for (; i < l.Length; i++)
+        {
+            var it = l[i];
+            if (it == 65039)
+            {
+                continue;
+            }
+            ls[index] = it;
+            index++;
+        }
+        ls = index == ls.Length ? ls : ls.Slice(0, index);
+
+        Span<char> rs = stackalloc char[r.Length];
+        i = 0;
+        index = 0;
+        for (; i < r.Length; i++)
+        {
+            var it = r[i];
+            if (it == 65039)
+            {
+                continue;
+            }
+            rs[index] = it;
+            index++;
+        }
+        if (ls.Length != index)
+        {
+            return false;
+        }
+        rs = index == rs.Length ? rs : rs.Slice(0, index);
+        return ls.SequenceEqual(rs);
+#pragma warning restore IDE0057 // 使用范围运算符
+    }
+
+    public static bool ValidateRustApp(string assemblyPath)
+    {
+        var fvi = FileVersionInfo.GetVersionInfo(assemblyPath);
+        if (fvi.Comments != Description && !string.IsNullOrEmpty(fvi.Comments))
+        {
+            return false;
+        }
+        else if (fvi.CompanyName != Company)
+        {
+            return false;
+        }
+        else if (!EqualsCopyright(fvi.LegalCopyright, Copyright))
+        {
+            return false;
+        }
+        else if (fvi.LegalTrademarks != Trademark && !string.IsNullOrEmpty(fvi.LegalTrademarks))
+        {
+            return false;
+        }
+        else if (fvi.ProductName != Product)
+        {
+            return false;
+        }
+
+        // TODO: Digital signature verification
         return true;
     }
 
