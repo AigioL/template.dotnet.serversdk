@@ -27,6 +27,8 @@ static partial class AssemblyInfo
         + " (Publish Tools)"
 #elif PROJ_DLLEXPORT
         + " (Dll Export)"
+#elif PROJ_LIBRARY
+        + " (Library)"
 #elif PROJ_DOTNETFX
         + " (.NET FX)"
 #else
