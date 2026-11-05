@@ -19,7 +19,9 @@ static partial class AssemblyInfo
 #else
         Trademark
 #endif
-#if PROJ_WEBHOST
+#if PROJ_BACKEND
+        + " (Backend)"
+#elif PROJ_WEBHOST
         + " (WebHost)"
 #elif PROJ_SETUP
         + " (Setup)"
